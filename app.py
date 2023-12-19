@@ -27,8 +27,11 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
 # Define the Google Drive link
 gcs_path = "https://drive.google.com/file/d/1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ/view?usp=sharing"
 
+# Download the file to a local path
+local_path = "pipeline.pkl"
+gdown.download(gdrive_link, local_path, quiet=False)
 # Load the pickle file using Joblib and gcsfs
-pipeline = joblib.load(gcsfs.GCSFileSystem().open(gcs_path, "rb"))
+pipeline = joblib.load(local_path)
 
 
 st.title("Corportica Projectica 💼")
