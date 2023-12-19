@@ -7,8 +7,7 @@ import PyPDF2
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import dominate
 from dominate.tags import div, p, style, h1
-
-import gcsfs
+import gdown
 
 
 def convert_to_html(results, file_path):
@@ -86,11 +85,16 @@ def save_paragraphs(unnormalized_paragraph, saved_paragraphs):
 
 
 def load_models():
-    link1 = "https://drive.google.com/file/d/13XPrwL9hBnBGlCfH-oN0CAF8QVlsJeRx/view?usp=drive_link"
-    link2 = "https://drive.google.com/file/d/1-6VlNND0w77IKx9XixFgKS1Z7LhZ_FTu/view?usp=drive_link"
-    dbscan = joblib.load(gcsfs.GCSFileSystem().open(link1, "rb"))
+    dbscan_link = "https://drive.google.com/file/d/13XPrwL9hBnBGlCfH-oN0CAF8QVlsJeRx/view?usp=sharing"
+    vectorizer_link = "https://drive.google.com/file/d/1-6VlNND0w77IKx9XixFgKS1Z7LhZ_FTu/view?usp=sharing"
+    dbscan_path = "dbscan.pkl"
+    vectorizer_path = "vectorizer.pkl"
 
-    vectorizer = joblib.load(gcsfs.GCSFileSystem().open(link2, "rb"))
+    gdown.download(vectorizer_link, vectorizer_path, quiet=False)
+    gdown.download(dbscan_link, dbscan_path, quiet=False)
+    dbscan = joblib.load(dbscan_path)
+
+    vectorizer = joblib.load(vectorizer_path)
     return dbscan, vectorizer
 
 
