@@ -14,6 +14,7 @@ import base64
 import os
 import docx
 import html2text
+import gdown
 
 
 def get_binary_file_downloader_html(bin_file, file_label='File'):
