@@ -17,6 +17,7 @@ import docx
 import html2text
 import gdown
 import os
+import nltk
 
 
 def get_binary_file_downloader_html(bin_file, file_label='File'):
@@ -38,6 +39,7 @@ def load_pipeline():
     # Download the file only if it does not exist
     if not os.path.exists(local_path):
         gdown.download(gcs_path, local_path, quiet=False)
+        nltk.download('punkt')
 
     # Load the pickle file using Joblib
     pipeline = joblib.load(local_path)
