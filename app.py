@@ -1,4 +1,4 @@
-import gcsfs
+
 from PIL import Image
 import streamlit as st
 import joblib
