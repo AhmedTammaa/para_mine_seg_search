@@ -1,0 +1,18 @@
+Collecting accelerate
+  Downloading accelerate-0.25.0-py3-none-any.whl (265 kB)
+Collecting psutil
+  Downloading psutil-5.9.6-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (283 kB)
+Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.8/dist-packages (from accelerate) (1.22.1)
+Requirement already satisfied: pyyaml in /usr/local/lib/python3.8/dist-packages (from accelerate) (6.0.1)
+Requirement already satisfied: torch>=1.10.0 in /usr/local/lib/python3.8/dist-packages (from accelerate) (1.10.0)
+Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.8/dist-packages (from accelerate) (21.3)
+Requirement already satisfied: safetensors>=0.3.1 in /usr/local/lib/python3.8/dist-packages (from accelerate) (0.4.1)
+Requirement already satisfied: huggingface-hub in /usr/local/lib/python3.8/dist-packages (from accelerate) (0.19.4)
+Requirement already satisfied: typing-extensions in /usr/local/lib/python3.8/dist-packages (from torch>=1.10.0->accelerate) (4.0.1)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /usr/local/lib/python3.8/dist-packages (from packaging>=20.0->accelerate) (3.0.7)
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from huggingface-hub->accelerate) (2.22.0)
+Requirement already satisfied: tqdm>=4.42.1 in /usr/local/lib/python3.8/dist-packages (from huggingface-hub->accelerate) (4.66.1)
+Requirement already satisfied: fsspec>=2023.5.0 in /usr/local/lib/python3.8/dist-packages (from huggingface-hub->accelerate) (2023.10.0)
+Requirement already satisfied: filelock in /usr/local/lib/python3.8/dist-packages (from huggingface-hub->accelerate) (3.13.1)
+Installing collected packages: psutil, accelerate
+Successfully installed accelerate-0.25.0 psutil-5.9.6

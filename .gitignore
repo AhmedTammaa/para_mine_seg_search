@@ -1,0 +1,23 @@
+# Ignore files and directories for training
+/for_training/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore test files
+/test_files/
+
+*.csv # ignore all csv files in the data directory
+/models/*.pkl # ignore the output.pkl file only in the root directory
+
+/models/*.rar # ignore the output.pkl file only in the root directory
+/models/
+*.model
+.git
+/.git/
+.git/
+/.git
