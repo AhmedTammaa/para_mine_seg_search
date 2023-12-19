@@ -16,6 +16,7 @@ import os
 import docx
 import html2text
 import gdown
+import os
 
 
 def get_binary_file_downloader_html(bin_file, file_label='File'):
@@ -26,16 +27,27 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
     return href
 
 
-# Define the Google Drive link
-gcs_path = "https://drive.google.com/u/0/uc?id=1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ&export=download"
+@st.cache(allow_output_mutation=True, suppress_st_warning=True)
+def load_pipeline():
+    # Define the Google Drive link
+    gcs_path = "https://drive.google.com/u/0/uc?id=1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ&export=download"
 
-# Download the file to a local path
-local_path = "pipeline.pkl"
-gdown.download(gcs_path, local_path, quiet=False)
-# Load the pickle file using Joblib and gcsfs
-pipeline = joblib.load(local_path)
-# with open("pipeline.pkl", "rb") as f:
-#   pipeline = pickle.load(f)
+    # Local path for the downloaded file
+    local_path = "pipeline.pkl"
+
+    # Download the file only if it does not exist
+    if not os.path.exists(local_path):
+        gdown.download(gcs_path, local_path, quiet=False)
+
+    # Load the pickle file using Joblib
+    pipeline = joblib.load(local_path)
+
+    # Return the pipeline object
+    return pipeline
+
+
+# Call the function and assign the result to a variable
+pipeline = load_pipeline()
 
 st.title("Corportica Projectica 💼")
 
