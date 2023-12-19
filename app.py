@@ -1,4 +1,5 @@
 
+import pickle
 from PIL import Image
 import streamlit as st
 import joblib
@@ -32,8 +33,9 @@ gcs_path = "https://drive.google.com/file/d/1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ/vi
 local_path = "pipeline.pkl"
 gdown.download(gcs_path, local_path, quiet=False)
 # Load the pickle file using Joblib and gcsfs
-pipeline = joblib.load(local_path)
-
+# pipeline = joblib.load(local_path)
+with open("pipeline.pkl", "rb") as f:
+    pipeline = pickle.load(f)
 
 st.title("Corportica Projectica 💼")
 
