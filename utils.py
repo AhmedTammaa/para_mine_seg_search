@@ -84,8 +84,10 @@ def save_paragraphs(unnormalized_paragraph, saved_paragraphs):
 
 
 def load_models():
-    dbscan = joblib.load("models/para_seg.pkl")
-    vectorizer = joblib.load("models/vectorizer.pkl")
+    dbscan = joblib.load(
+        "https://drive.google.com/file/d/13XPrwL9hBnBGlCfH-oN0CAF8QVlsJeRx/view?usp=drive_link")
+    vectorizer = joblib.load(
+        "https://drive.google.com/file/d/1-6VlNND0w77IKx9XixFgKS1Z7LhZ_FTu/view?usp=drive_link")
     return dbscan, vectorizer
 
 

@@ -24,7 +24,8 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
 
 
 # Load the pipeline
-pipeline = joblib.load(Path("models/process_para_pipeline.pkl"))
+pipeline = joblib.load(
+    'https://drive.google.com/file/d/1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ/view?usp=drive_link')
 
 st.title("Corportica Projectica 💼")
 

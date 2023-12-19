@@ -23,3 +23,8 @@ __pycache__/
 /.git
 *.json
 InterviewInsightMine/Question_Tagging/para_seg_mine_search/
+output.html
+output_files/Markov Chains_0f2a205ae9874418bf8e4a8fcdfcbccb.html
+output_files/Markov Chains_6e6cc6dfc7994001b94b2a9504be8ce2.html
+output_files/Markov Chains_a158ec30c34b444c949a2387b76e8ae1.html
+*.html
