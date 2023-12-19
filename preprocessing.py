@@ -54,7 +54,7 @@ def text_normalization(text):
 
 
 def postprocess_titles(title):
-    nltk.download('punkt')
+
     nlp = spacy.load("en_core_web_sm")
     doc = nlp(title)
 
