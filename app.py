@@ -66,7 +66,8 @@ uploaded_file = st.file_uploader(
 if uploaded_file is not None:
     file_name = uploaded_file.name
     file_path = Path(f"uploaded_files/{file_name}")
-
+    if not os.path.exists("uploaded_files"):
+        os.mkdir("uploaded_files")
     # Save file to upload folder only if it doesn't exist
     if not file_path.exists():
         st.write(file_path)
