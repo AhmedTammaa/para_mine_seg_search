@@ -30,7 +30,7 @@ gcs_path = "https://drive.google.com/file/d/1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ/vi
 
 # Download the file to a local path
 local_path = "pipeline.pkl"
-gdown.download(gdrive_link, local_path, quiet=False)
+gdown.download(gcs_path, local_path, quiet=False)
 # Load the pickle file using Joblib and gcsfs
 pipeline = joblib.load(local_path)
 
