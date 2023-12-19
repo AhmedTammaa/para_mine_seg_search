@@ -8,6 +8,8 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import dominate
 from dominate.tags import div, p, style, h1
 
+import gcsfs
+
 
 def convert_to_html(results, file_path):
     doc = dominate.document(title='Processed Document')
@@ -84,10 +86,11 @@ def save_paragraphs(unnormalized_paragraph, saved_paragraphs):
 
 
 def load_models():
-    dbscan = joblib.load(
-        "https://drive.google.com/file/d/13XPrwL9hBnBGlCfH-oN0CAF8QVlsJeRx/view?usp=drive_link")
-    vectorizer = joblib.load(
-        "https://drive.google.com/file/d/1-6VlNND0w77IKx9XixFgKS1Z7LhZ_FTu/view?usp=drive_link")
+    link1 = "https://drive.google.com/file/d/13XPrwL9hBnBGlCfH-oN0CAF8QVlsJeRx/view?usp=drive_link"
+    link2 = "https://drive.google.com/file/d/1-6VlNND0w77IKx9XixFgKS1Z7LhZ_FTu/view?usp=drive_link"
+    dbscan = joblib.load(gcsfs.GCSFileSystem().open(link1, "rb"))
+
+    vectorizer = joblib.load(gcsfs.GCSFileSystem().open(link2, "rb"))
     return dbscan, vectorizer
 
 

@@ -1,3 +1,4 @@
+import gcsfs
 from PIL import Image
 import streamlit as st
 import joblib
@@ -23,9 +24,12 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
     return href
 
 
-# Load the pipeline
-pipeline = joblib.load(
-    'https://drive.google.com/file/d/1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ/view?usp=drive_link')
+# Define the Google Drive link
+gcs_path = "https://drive.google.com/file/d/1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ/view?usp=drive_link"
+
+# Load the pickle file using Joblib and gcsfs
+pipeline = joblib.load(gcsfs.GCSFileSystem().open(gcs_path, "rb"))
+
 
 st.title("Corportica Projectica 💼")
 
