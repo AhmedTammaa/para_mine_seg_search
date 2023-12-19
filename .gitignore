@@ -22,3 +22,4 @@ __pycache__/
 .git/
 /.git
 *.json
+InterviewInsightMine/Question_Tagging/para_seg_mine_search/
