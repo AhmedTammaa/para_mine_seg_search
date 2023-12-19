@@ -69,7 +69,9 @@ if uploaded_file is not None:
 
     # Save file to upload folder only if it doesn't exist
     if not file_path.exists():
-        with open(UPLOAD_FOLDER, "wb") as f:
+        st.write(file_path)
+        with open(file_path, "wb") as f:
+
             f.write(uploaded_file.getbuffer())
 
     # Cache the pipeline function
