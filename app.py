@@ -27,7 +27,7 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
 
 
 # Define the Google Drive link
-gcs_path = "https://drive.google.com/file/d/1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ/view?usp=sharing"
+gcs_path = "https://drive.google.com/u/0/uc?id=1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ&export=download"
 
 # Download the file to a local path
 local_path = "pipeline.pkl"
