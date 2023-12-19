@@ -33,9 +33,9 @@ gcs_path = "https://drive.google.com/u/0/uc?id=1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ
 local_path = "pipeline.pkl"
 gdown.download(gcs_path, local_path, quiet=False)
 # Load the pickle file using Joblib and gcsfs
-# pipeline = joblib.load(local_path)
-with open("pipeline.pkl", "rb") as f:
-    pipeline = pickle.load(f)
+pipeline = joblib.load(local_path)
+# with open("pipeline.pkl", "rb") as f:
+#   pipeline = pickle.load(f)
 
 st.title("Corportica Projectica 💼")
 
