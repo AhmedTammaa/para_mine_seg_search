@@ -30,23 +30,29 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
 
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def load_pipeline():
-    # Define the Google Drive link
-    gcs_path = "https://drive.google.com/u/0/uc?id=1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ&export=download"
+    # Define the Google Drive link for direct download
+    gcs_path = "https://drive.google.com/uc?export=download&id=1-3XumxPf1PMlTdEJ4YEEavHII-bs56dJ"
 
-    # Local path for the downloaded file
-    local_path = "pipeline.pkl"
+    # Set a local path for the downloaded file
+    local_path = os.path.join(os.getcwd(), "pipeline.pkl")
 
-    # Download the file only if it does not exist
-    if not os.path.exists(local_path):
-        gdown.download(gcs_path, local_path, quiet=False)
-        nltk.download('punkt')
+    try:
+        # Download the file only if it does not exist
+        if not os.path.exists(local_path):
+            gdown.download(gcs_path, local_path, quiet=False)
 
-    # Load the pickle file using Joblib
-    pipeline = joblib.load(local_path)
+        # Load the pickle file using Joblib
+        pipeline = joblib.load(local_path)
 
-    # Return the pipeline object
+    except Exception as e:
+        st.error(f"An error occurred: {e}")
+        return None
+
     return pipeline
 
+
+# Ensure NLTK data is available
+nltk.download('punkt')
 
 # Call the function and assign the result to a variable
 pipeline = load_pipeline()

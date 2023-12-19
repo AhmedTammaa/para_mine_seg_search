@@ -14,7 +14,7 @@ class ExtractAndPredict(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X):
-        nltk.download('punkt')
+        # nltk.download('punkt')
         text = utils.process_folder(UPLOAD_FOLDER)
         # Concatenate text into one long string
         text = "".join(text.values())
