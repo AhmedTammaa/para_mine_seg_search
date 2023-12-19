@@ -119,6 +119,7 @@ def paragraph_processing(extracted_text):
 
 
 def segment_documents_into_paragraphs(document_list, eps=0.5, min_samples=2, min_paragraph_size=3, max_paragraph_size=10):
+    nltk.download('punkt')
     model = SentenceTransformer('all-MiniLM-L6-v2')
     paragraphs = []
 
