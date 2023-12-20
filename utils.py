@@ -3,12 +3,12 @@ import joblib
 import os
 from docx import Document
 import PyPDF2
-
+from io import BytesIO
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import dominate
 from dominate.tags import div, p, style, h1
 import gdown
-
+import streamlit as st
 
 def convert_to_html(results, file_path):
     doc = dominate.document(title='Processed Document')
@@ -98,43 +98,39 @@ def load_models():
     return dbscan, vectorizer
 
 
-def extract_text_from_file(file_path):
-    _, file_extension = os.path.splitext(file_path.lower())
+def extract_text_from_file(uploaded_file):
+    # Get the file extension from the uploaded file
+    _, file_extension = os.path.splitext(uploaded_file.name.lower())
 
     if file_extension == ".txt":
         try:
             # Try reading the file with UTF-8
-            with open(file_path, "r", encoding="utf-8") as file:
-                return file.read()
+            return uploaded_file.read().decode("utf-8")
         except UnicodeDecodeError:
-            with open(file_path, "r", encoding="latin-1") as file:
-                return file.read()
+            # If UTF-8 fails, try reading with Latin-1
+            uploaded_file.seek(0)
+            return uploaded_file.read().decode("latin-1")
 
     elif file_extension == ".pdf":
-        with open(file_path, "rb") as file:
-            pdf_reader = PyPDF2.PdfReader(file)
-            text = ""
-            for page_number in range(len(pdf_reader.pages)):
-                text += pdf_reader.pages[page_number].extract_text()
-            return text
+        # Use PyPDF2 to extract text from PDF
+        pdf_reader = PyPDF2.PdfReader(uploaded_file)
+        text = ""
+        for page_number in range(len(pdf_reader.pages)):
+            text += pdf_reader.pages[page_number].extract_text()
+        return text
     elif file_extension == ".docx":
-        doc = Document(file_path)
+        # Use python-docx to extract text from DOCX
+        doc = Document(BytesIO(uploaded_file.read()))
         text = ""
         for paragraph in doc.paragraphs:
             text += paragraph.text + "\n"
         return text
     else:
-        print(f"Unsupported file format: {file_extension}")
+        st.error(f"Unsupported file format: {file_extension}")
         return None
 
 
-def process_folder(folder_path):
-    extracted_data = dict()
 
-    for root, _, files in os.walk(folder_path):
-        for file_name in files:
-            file_path = os.path.join(root, file_name)
-            extracted_text = extract_text_from_file(file_path)
-            if extracted_text is not None:
-                extracted_data[file_path] = extracted_text
-    return extracted_data
+def process_folder(folder_path):
+    extracted_text = extract_text_from_file(folder_path)
+    return extracted_text
