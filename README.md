@@ -40,12 +40,7 @@ To use the paragraph retrieval and headline generation scripts:
 
 Ensure all required libraries are installed
 Place documents to process in input_documents/ folder
-Deployed Link Soon.
-<!---->
-Run python process_documents.py to trigger the pipeline
-<!---->
-Retrieved paragraphs and headlines will be saved to output/
-To search paragraphs:
+Deployed Link: https://paragraph-miner.streamlit.app/
 
 Run app.py
 
@@ -57,14 +52,15 @@ The system follows a pipeline architecture:
 Pipeline Architecture
 (soon)
 
-Document Preprocessing
+# Document Preprocessing
 
 Uploads are normalized via steps:
 
-# Text extraction (PDF, DOCX)
-Tokenization
-Paragraph segmentation
-Paragraph Retrieval
+1- Text extraction (PDF, DOCX)
+2- Tokenization
+3- Paragraph segmentation
+4- Paragraph title generation
+5- Paragraph Retrieval
 ```all-mpnet-base-v2``` model encodes paragraphs and topic search vectors to vectors. DBSCAN clustering extracts related paragraph clusters.
 
 # Headline Generation
