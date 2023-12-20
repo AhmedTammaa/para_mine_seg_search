@@ -1,4 +1,4 @@
-
+from sklearn.pipeline import Pipeline
 import pickle
 from PIL import Image
 import streamlit as st
