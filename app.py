@@ -93,7 +93,7 @@ if uploaded_file is not None:
         return html_path
 
     # Run pipeline and html conversion only once
-    paragraphs = run_pipeline(file_path)
+    paragraphs = run_pipeline(uploaded_file)
     output_file_name = file_name.split('.')[0] + "_" + uuid.uuid4().hex
     html_path = convert_to_html_file(paragraphs, output_file_name)
 
