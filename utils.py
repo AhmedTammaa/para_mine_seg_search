@@ -65,9 +65,9 @@ def convert_to_html(results, file_path):
 
 def load_title_generator():
     tokenizer = AutoTokenizer.from_pretrained(
-        "fabiochiu/t5-base-medium-title-generation")
+        "fabiochiu/t5-small-medium-title-generation")
     model = AutoModelForSeq2SeqLM.from_pretrained(
-        "fabiochiu/t5-base-medium-title-generation")
+        "fabiochiu/t5-small-medium-title-generation")
     return tokenizer, model
 
 
