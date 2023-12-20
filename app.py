@@ -19,7 +19,7 @@ import gdown
 import os
 import nltk
 from config import UPLOAD_FOLDER
-
+from sklearn.pipeline import Pipeline
 
 def get_binary_file_downloader_html(bin_file, file_label='File'):
     with open(bin_file, 'rb') as f:
