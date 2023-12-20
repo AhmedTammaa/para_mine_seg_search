@@ -18,9 +18,9 @@ class ExtractAndPredict(BaseEstimator, TransformerMixin):
        # st.write(type(X))
         text = utils.process_folder(X)
         # Concatenate text into one long string
-        st.write(type(text))
-        st.write(text)
-        text = "".join(text.values())
+        #st.write(type(text))
+        #st.write(text)
+        #text = "".join(text.values())
         # paragraphs = predict_paragraphs(text, self.dbscan, self.vectorizer)
         # print(type(text))
 
