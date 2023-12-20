@@ -75,14 +75,14 @@ all-mpnet-base-v2 encodes search queries and paragraphs. Matches are ranked by c
 
 # Installation
 
-
 pip install -r requirements.txt
-Requirements are stored in requirements.txt and include:
 
-Transformers
-spaCy
-scikit-learn
-Streamlit
+The project is developed on tensorflow/tensorflow:latest-gpu-jupyter docker image
+
+Deployed using streamlit. The user can run the streamlit app locally by running the app.py
+
+The code will automatically download the required models. So just run the app.py and you are good to go 😉
+
 
 Contributing
 Contributions to improve the paragraph segmentation, search accuracy, headline quality and processing speeds are welcome. Please open an issue first to discuss the proposal before submitting PR.
