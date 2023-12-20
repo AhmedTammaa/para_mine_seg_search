@@ -77,9 +77,9 @@ all-mpnet-base-v2 encodes search queries and paragraphs. Matches are ranked by c
 
 ```pip install -r requirements.txt ```
 
-The project is developed on tensorflow/tensorflow:latest-gpu-jupyter docker image
+The project is developed on ```tensorflow/tensorflow:latest-gpu-jupyter``` docker image
 
-Deployed using streamlit. The user can run the streamlit app locally by running the app.py
+Deployed using ```streamlit```. The user can run the ```streamlit``` app locally by running the ```app.py```
 
 The code will automatically download the required models. So just run the app.py and you are good to go 😉
 
