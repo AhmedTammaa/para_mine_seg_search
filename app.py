@@ -70,19 +70,19 @@ uploaded_file = st.file_uploader(
 
 if uploaded_file is not None:
     file_name = uploaded_file.name
-    file_path = Path(f"uploaded_files/{file_name}")
-    if not os.path.exists("uploaded_files"):
-        os.mkdir("uploaded_files")
+    #file_path = Path(f"uploaded_files/{file_name}")
+    #if not os.path.exists("uploaded_files"):
+     #   os.mkdir("uploaded_files")
     # Save file to upload folder only if it doesn't exist
-    if not file_path.exists():
-        st.write(file_path)
-        with open(file_path, "wb") as f:
+    #if not file_path.exists():
+     #   st.write(file_path)
+      #  with open(file_path, "wb") as f:
 
-            f.write(uploaded_file.getbuffer())
+       #     f.write(uploaded_file.getbuffer())
 
     # Cache the pipeline function
     @st.cache_resource
-    def run_pipeline(file_path):
+    def run_pipeline(uploaded_file):
         return pipeline.transform(uploaded_file)
 
     # Cache the html conversion function
