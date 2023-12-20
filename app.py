@@ -63,7 +63,7 @@ nltk.download('punkt')
 # Call the function and assign the result to a variable
 pipeline = load_pipeline()
 
-st.title("Corportica Projectica 💼")
+st.title("Paragraph Segementer and Searcher")
 
 uploaded_file = st.file_uploader(
     "Choose a file", type=['docx', 'txt', 'pdf'], accept_multiple_files=False)
