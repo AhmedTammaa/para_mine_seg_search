@@ -68,10 +68,10 @@ Paragraph Retrieval
 ```all-mpnet-base-v2``` model encodes paragraphs and topic search vectors to vectors. DBSCAN clustering extracts related paragraph clusters.
 
 # Headline Generation
-T5 Headline Generator creates abstractive headlines for retrieved paragraphs.
+```T5``` Headline Generator creates abstractive headlines for retrieved paragraphs.
 
 # Search
-all-mpnet-base-v2 encodes search queries and paragraphs. Matches are ranked by cosine similarity.
+```all-mpnet-base-v2``` encodes search queries and paragraphs. Matches are ranked by cosine similarity.
 
 # Installation
 
@@ -84,8 +84,9 @@ Deployed using ```streamlit```. The user can run the ```streamlit``` app locally
 The code will automatically download the required models. So just run the app.py and you are good to go 😉
 
 
-Contributing
+# Contributing
+
 Contributions to improve the paragraph segmentation, search accuracy, headline quality and processing speeds are welcome. Please open an issue first to discuss the proposal before submitting PR.
 
-Contact
+# Contact
 For any queries, please reach out to ahmedtammaa101@gmail.com
