@@ -1,4 +1,4 @@
-from sklearn.pipeline import Pipeline
+
 import pickle
 from PIL import Image
 import streamlit as st
@@ -83,7 +83,7 @@ if uploaded_file is not None:
     # Cache the pipeline function
     @st.cache_resource
     def run_pipeline(file_path):
-        return pipeline.transform(str(file_path))
+        return pipeline.transform(uploaded_file)
 
     # Cache the html conversion function
     @st.cache_resource
