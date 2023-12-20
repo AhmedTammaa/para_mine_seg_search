@@ -15,9 +15,10 @@ class ExtractAndPredict(BaseEstimator, TransformerMixin):
 
     def transform(self, X):
         # nltk.download('punkt')
-        st.write(type(X))
+       # st.write(type(X))
         text = utils.process_folder(X)
         # Concatenate text into one long string
+        st.write(type(text))
         text = "".join(text.values())
         # paragraphs = predict_paragraphs(text, self.dbscan, self.vectorizer)
         # print(type(text))
