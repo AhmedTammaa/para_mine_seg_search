@@ -14,7 +14,7 @@ def search_paragraphs(query, paragraphs):
     nlp = spacy.load("en_core_web_sm")
 
     # Load Sentence Transformer model
-    model_name = "all-mpnet-base-v2"
+    model_name = "multi-qa-distilbert-cos-v1"
     sentence_transformer = SentenceTransformer(model_name)
 
     # Extract content from the list of tuples
