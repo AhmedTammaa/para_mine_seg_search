@@ -65,7 +65,7 @@ Uploads are normalized via steps:
 Tokenization
 Paragraph segmentation
 Paragraph Retrieval
-all-mpnet-base-v2 model encodes paragraphs and topic search vectors to vectors. DBSCAN clustering extracts related paragraph clusters.
+```all-mpnet-base-v2``` model encodes paragraphs and topic search vectors to vectors. DBSCAN clustering extracts related paragraph clusters.
 
 # Headline Generation
 T5 Headline Generator creates abstractive headlines for retrieved paragraphs.
@@ -75,7 +75,7 @@ all-mpnet-base-v2 encodes search queries and paragraphs. Matches are ranked by c
 
 # Installation
 
-pip install -r requirements.txt
+```pip install -r requirements.txt ```
 
 The project is developed on tensorflow/tensorflow:latest-gpu-jupyter docker image
 
